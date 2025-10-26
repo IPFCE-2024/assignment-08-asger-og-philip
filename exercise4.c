@@ -64,6 +64,8 @@ bool full(stack *s) {
  */
 void init_queue(queue *q) {
     /* TODO: initialize queue */
+    initialize(&q->s1);
+    initialize(&q->s2);
 }
 
 /* 
@@ -73,6 +75,7 @@ void init_queue(queue *q) {
  */
 void enqueue(queue *q, int x) {
     /* TODO: Implement enqueue using ONLY stack operations */
+    push(&q->s1,x);
 }
 
 /* 
@@ -81,8 +84,14 @@ void enqueue(queue *q, int x) {
  */
 int dequeue(queue *q) {
     /* TODO: Implement dequeue using ONLY stack operations */
-    
-    return 0;  // TODO: Replace with actual implementation
+    while(!empty(&q->s1)){
+        push(&q->s2,pop(&q->s1));
+    }
+    int x = pop(&q->s2);
+    while(!empty(&q->s2)){
+        push(&q->s1,pop(&q->s2));
+    }
+    return x;  // TODO: Replace with actual implementation
 }
 
 /* 
@@ -92,7 +101,8 @@ int dequeue(queue *q) {
  */
 bool queue_empty(queue *q) {
     /* TODO: Implement using ONLY stack operations */
-    return false;  // TODO: Replace with actual implementation
+    return empty(&q->s1);
+    // TODO: Replace with actual implementation
 }
 
 /* 
