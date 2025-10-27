@@ -8,22 +8,22 @@
  */
 
 #include "include/exercise2.h"
-node *create_list_from_array(int arr[], int size)
-{
-    if (size == 0)
-        return NULL;
+// node *create_list_from_array(int arr[], int size)
+// {
+//     if (size == 0)
+//         return NULL;
 
-    node *head = create_node(arr[0]);
-    node *current = head;
+//     node *head = create_node(arr[0]);
+//     node *current = head;
 
-    for (int i = 1; i < size; i++)
-    {
-        current->next = create_node(arr[i]);
-        current = current->next;
-    }
+//     for (int i = 1; i < size; i++)
+//     {
+//         current->next = create_node(arr[i]);
+//         current = current->next;
+//     }
 
-    return head;
-}
+//     return head;
+// }
 /*
  * Sort a singly linked list in-place using insertion sort
  * list: pointer to the first node of the list
